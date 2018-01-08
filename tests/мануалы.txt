@@ -1,0 +1,77 @@
+﻿с http://gitlab.europlan.ru/web-development/eca-front копируем ссылку http://gitlab.europlan.ru/web-development/eca-front.git , и вставляем в gitkraken (https://www.gitkraken.com/ ) вкладка Clone URL - прописываем пароль от гитлаба (рабочий логин/пароль, на данный момент svf5 QWEqwe123) - клонируем, потом устанавливаем еще какой то гит https://git-scm.com/downloads , после этого можем в file-preferences-default terminal установить Git Bash (alt+T открываем его)
+
+svf5@europlan.ru мейл
+Sergey F - name, пароль QWEqwe123  (наверно)
+
+http://srv-site-dev:6001/faq блок страница не найдена, в нём  ссылки не работают
+
+открываем visual code - открыть папку - и открываем папу скаченного репозитория нашего, подтягиваются все ветки и там в каждой папке есть Никитины тесты e2e
+
+Устанавливаем в расширение визуал код
+
+Angular Language Service 
+angular2-inline 
+Bracket Pair Colorizer 
+HTML Boilerplate 
+Material Icon Theme 
+One Dark Theme 
+Path Intellisense 
+
+ЧТОБЫ УСТАНОВИТЬ ЧЕ НИТЬ ЧЕРЕЗ КОНСОЛЬ - открываем от админа, прописываем прокси, потом pip install pyodbc
+set PROXY=http://srv-agent-01:8080
+set HTTP_PROXY=%PROXY%
+set HTTPS_PROXY=%PROXY%
+webdriver-manager update 
+
+
+Установили npm,http://tsumbaluk.in.ua/blog/e2e-testirovanie-prilozhenij-s-ispolzuya-protractor 
+
+в кракене создали отдельную ветку с аукционом, чтобы мои настрйоки не мешались с настрйокми никиты
+
+Что установил Денис 
+- открыл cmd 
+- прописал прокси - прописываем это в командной строке 
+
+npm config set proxy http://srv-agent-01:8080
+npm config set proxy.https http://srv-agent-01:8080
+npm config set proxy-https http://srv-agent-01:8080
+
+- далее npm install yarn -g
+- потом зашел в директорию где скачан проект (C:\REPO\eca-front)
+- открыл из него cmd (прописав  адресе папки cmd) и прописал yarn install (C:\REPO\eca-front>yarn install)
+Установился yarn
+
+прокси для npm http://isizov.ru/kak-ustanovit-proksi-dlya-npm/
+
+yarn start - запускаем локальный сервер с проектом http://localhost:3000
+
+yarn e2e - запуск тестов
+чтобы подсвечивал код тестов нужно сохранять файл с расщирением e2e.ts
+
+НЕ ЗАПУСКАЛСЯ СЕРВАК командой yarn start, что сделал Вадим 
+- удалил папку node_modules из C:\REPO\eca-front
+- через терминал визуал студио код установил ярн (команды yarn)
+- далее запустили сервак командой yarn start
+
+//
+ctrl+k+c
+ctrl+k+u
+
+$('.rate-spec-item').click() - в консоли вводим и можно открыть менюшку хар-ки http://localhost:3000/auction
+
+заидываем файлы в гит
+открывам киткракен - переходим на нашу ветку auctionTest - stage all changes - прописываем summary - changes to commit - 
+потом открываем bush - git status - git push - готово
+
+http://snakeproject.ru/rubric/article.php?art=python_pyodbc библиотека дял подключения к базе данных
+
+AutoIT
+https://www.guru99.com/use-autoit-selenium.html
+http://youtu.be/iZrGT-XDwlo
+чтобы запустить скрипт надо в тесте писать os.system("C:\\REPO\\eca-front\\src\\app\\auction\\tests\\AutoIT\\upload_foto.exe")
+
+https://habrahabr.ru/post/321510/ по базе данных
+
+https://annimon.com/article/2171 граббим картиночки grab python
+
+
