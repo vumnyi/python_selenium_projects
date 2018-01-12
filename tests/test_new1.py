@@ -28,9 +28,9 @@ class Login(unittest.TestCase):
         #  выкупаю, подтверждаю, проверяю заголовок Лот №817 снят с продажи.Победила ставка 1000000 рублей.
         #переходим на аукцирон, проверяем заголовок, кликаем на фильтр, вводим номер лота
         #driver.get("http://super-lk.europlan.ru/auction") - сделали так, что сразу перекидывает
-        title = driver.find_element_by_xpath("/html/body/app/auction/div[2]/auction-list/main/div/div[1]/h1")
+        title = driver.find_element_by_xpath('//*[@id="lotList"]/h1')
         assert title.text == "Автомобили на выкуп"
-        assert "Список лотов" in driver.title
+        assert "Европлан" in driver.title
         #марка
         driver.find_element_by_css_selector("#f_1_head").click() #фильтр
 

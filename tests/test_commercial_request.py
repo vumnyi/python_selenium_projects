@@ -21,7 +21,7 @@ class Login(unittest.TestCase):
 
 
     #babka = {'name': 'Имечко', 'telef': '9096660066', 'email': 'ssd@sxds.ru', 'comment': 'всаипвап ьовдлл ДОЛРЛОврьылоамирло ыылорлор345sdfsdff'} #здесь делал словарь ключ: значение
-    babka = ('Имечко Отчеcтво Фамилия', '9096660066', 'ssd@sxds.ru', 'комментарий тест 123456798 - 000 ваомпвлопдло hjdsjhfjhs') #здесь прлосто список, чтобы вставлять значения в функцию xpath_send_k
+    babka = ('Имечко Фамилия', '9096660066', 'ssd@sxds.ru', 'комментарий тест 123456798 - 000 ваомпвлопдло hjdsjhfjhs') #здесь прлосто список, чтобы вставлять значения в функцию xpath_send_k
 
 
     def xpath_send_k(xp_send_k, babka): #функция принимает два параметра xpath и значение из babka
@@ -120,6 +120,8 @@ class Login(unittest.TestCase):
     time.sleep(2)
     xpath_click('//*[@id="request_button"]') #нажимаем отправить
     time.sleep(5)
+    request_number = driver.find_element_by_xpath('//*[@id="request_large"]/div/div/h1').text
+    print(request_number)
 
 
 

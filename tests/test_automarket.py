@@ -68,7 +68,7 @@ class Login(unittest.TestCase):
     cursor.execute("select * from [Site-Dev].[dbo].[Requests] where [RequestNumber] = '{0}'".format(number_request)) # используем в запросе свою переменную,таким образом {0} - здесь обозначение переменной, .format(number_request) - объясняем где взять переменную
     result = cursor.fetchall() # Получаем результат сделанного запроса
     print(result)
-    cnxn.commit() # Если мы не просто читаем, но и вносим изменения в базу данных - необходимо сохранить транзакцию
+    # cnxn.commit() # Если мы не просто читаем, но и вносим изменения в базу данных - необходимо сохранить
     cnxn.close() # Не забываем закрыть соединение с базой данных
     time.sleep(2)
 

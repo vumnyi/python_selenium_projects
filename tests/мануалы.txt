@@ -1,4 +1,4 @@
-﻿с http://gitlab.europlan.ru/web-development/eca-front копируем ссылку http://gitlab.europlan.ru/web-development/eca-front.git , и вставляем в gitkraken (https://www.gitkraken.com/ ) вкладка Clone URL - прописываем пароль от гитлаба (рабочий логин/пароль, на данный момент svf5 QWEqwe123) - клонируем, потом устанавливаем еще какой то гит https://git-scm.com/downloads , после этого можем в file-preferences-default terminal установить Git Bash (alt+T открываем его)
+с http://gitlab.europlan.ru/web-development/eca-front копируем ссылку http://gitlab.europlan.ru/web-development/eca-front.git , и вставляем в gitkraken (https://www.gitkraken.com/ ) вкладка Clone URL - прописываем пароль от гитлаба (рабочий логин/пароль, на данный момент svf5 QWEqwe123) - клонируем, потом устанавливаем еще какой то гит https://git-scm.com/downloads , после этого можем в file-preferences-default terminal установить Git Bash (alt+T открываем его)
 
 svf5@europlan.ru мейл
 Sergey F - name, пароль QWEqwe123  (наверно)
@@ -72,6 +72,10 @@ http://youtu.be/iZrGT-XDwlo
 
 https://habrahabr.ru/post/321510/ по базе данных
 
-https://annimon.com/article/2171 граббим картиночки grab python
+для запуска всех тестов из папки (имя файлов должны начинаться с test) python -m unittest  ( это прописываем если консоль не из папки с тестами запускаемdiscover <test_directory> )
+
+https://intoli.com/blog/clear-the-chrome-browser-cache/ как удалить куки (в тестах есть пример)
+
+как будет время попробовать написать тест, который парсит а вдминке значение марки авто, и загружает из папки с таким же названием фотки в рандомном порядке
 
 
