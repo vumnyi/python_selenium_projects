@@ -1,0 +1,7 @@
+[INFO] line 634: systemencoding
+[ERROR] line 56: warnoptions
+[INFO] line 341: getprofile
+[ISSUE] line 736: version_info
+[INFO] line 334: getrecursi
+[WARN] line 52: warnoptions
+[INFO] line 134: getprofile
