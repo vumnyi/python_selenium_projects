@@ -47,18 +47,21 @@ def main(filter):
         count = frequency.get(word, 0)
         frequency[word] = count + 1
 
-    if sys.argv[2] == '1': #1 decrease symbols
-        print("В порядке уменьшения количества символов в слове")
-        for i in sorted(frequency.items(), key=lambda x: (len(x[0]), x[0]))[:int(sys.argv[3])]:
-            print(i[0], i[1])
-    elif sys.argv[2] == '2': #2 frequency word in text
-        print("В порядке частоты встречания слова в тексте")
-        for words in sorted(frequency.items(), key=lambda x: x[1])[:int(sys.argv[3])]:
-            print(words[0], words[1])
-    elif sys.argv[2] == '3': #3 alphabet
-        print("В алфавитном порядке")
-        for words in sorted(frequency.keys())[:int(sys.argv[3])]:
-            print(words, frequency[words])
+    if len(frequency) == 0:
+        print("Текст не содержит слов согласно заданному фильтру")
+    else:
+        if sys.argv[2] == '1': #1 decrease symbols
+            print("В порядке уменьшения количества символов в слове")
+            for i in sorted(frequency.items(), key=lambda x: (len(x[0]), x[0]))[:int(sys.argv[3])]:
+                print(i[0], i[1])
+        elif sys.argv[2] == '2': #2 frequency word in text
+            print("В порядке частоты встречания слова в тексте")
+            for words in sorted(frequency.items(), key=lambda x: x[1])[:int(sys.argv[3])]:
+                print(words[0], words[1])
+        elif sys.argv[2] == '3': #3 alphabet
+            print("В алфавитном порядке")
+            for words in sorted(frequency.keys())[:int(sys.argv[3])]:
+                print(words, frequency[words])
 
 
 if __name__ == '__main__':
