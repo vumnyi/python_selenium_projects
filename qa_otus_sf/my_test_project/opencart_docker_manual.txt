@@ -1,0 +1,6 @@
+1. https://docs.docker.com/install/linux/docker-ce/ubuntu/
+2. https://docs.docker.com/install/linux/linux-postinstall/ - добавляем текущего пользователя в группу docker
+3. sudo apt install docker-compose
+4. https://github.com/bitnami/bitnami-docker-opencart - скачиваем docker-compose.yml файл, добавляем секцию ports в mariadb '3306:3306'
+5. sudo docker-compose up -d из каталога с файлом
+

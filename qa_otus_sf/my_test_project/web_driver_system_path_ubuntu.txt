@@ -1,0 +1,7 @@
+https://christopher.su/2015/selenium-chromedriver-ubuntu/
+
+скачиваем драйвер, перемещаем, добавляем в path, тоже самое для geckodriver
+sergey@sergey-comp:~/Загрузки$ sudo mv -f chromedriver /usr/local/share/chromedriver
+sergey@sergey-comp:~/Загрузки$ sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+sergey@sergey-comp:~/Загрузки$ sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+
