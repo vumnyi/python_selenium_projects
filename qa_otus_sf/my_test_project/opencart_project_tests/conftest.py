@@ -4,16 +4,15 @@ import pytest
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", "-B", action="store", default="chrome")
-    parser.addoption("--url", "-U", action="store", default="http://localhost/")
-    parser.addoption("--options", "-O", action="store", default="")
+    parser.addoption("--browser", "-B", action="store", default="chrome", help="choose your browser")
+    parser.addoption("--url", "-U", action="store", default="http://localhost/", help="choose your url")
+    parser.addoption("--options", "-O", action="store", default="", help="choose headless")
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def browser(request):
     browser_param = request.config.getoption("--browser")
     browser_options = request.config.getoption("--options")
-    browser_url = request.config.getoption("--url")
     if browser_param == "chrome":
         if browser_options == 'headless':
             options = webdriver.ChromeOptions()
@@ -29,7 +28,7 @@ def browser(request):
         else:
             driver = webdriver.Firefox()
 
-    driver.get(browser_url)
     driver.maximize_window()
     request.addfinalizer(driver.close)
+    driver.get(request.config.getoption("--url"))
     return driver
