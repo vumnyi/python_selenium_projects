@@ -44,5 +44,5 @@ class ProductPage:
         wrap_image_previos_button = wrapper + "//button[@title='Previous (Left arrow key)']"
         wrap_image_next_button = wrapper + "Next (Right arrow key)"
 
-    class alert:
+    class Alert:
         success = "//div[contains(@class, 'alert-success')]"

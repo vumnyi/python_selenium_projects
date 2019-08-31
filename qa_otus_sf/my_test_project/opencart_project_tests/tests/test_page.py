@@ -49,4 +49,4 @@ def test_login(browser):
     browser.find_element_by_xpath(AdminPage.password_input).send_keys('123123')
     browser.find_element_by_xpath(AdminPage.button_submit).click()
     assert 'My Account', 'My Affiliate Account' in \
-                         browser.find_elements_by_xpath(AdminPage.Account.h2).text
+                         browser.find_elements_by_xpath(AdminPage.ClientAdminPage.Account.h2).text

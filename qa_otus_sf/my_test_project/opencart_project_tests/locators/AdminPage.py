@@ -1,10 +1,11 @@
 class AdminPage:
     continue_button = "//*[text() = 'Continue']"
-    button_submit = "//input[@type='submit']"
+    button_submit = "//*[@type='submit']"
     button_back = "//*[text() = 'Back']"
     login_button = "input[@value='Login']"
     list_group_column_links = "//div[@class='list-group']/a"
     email_input = "//input[@name='email']"
+    username_input = "//input[@name='username']"
     password_input = "//input[@name='password']"
     forgotten_password_link = "//a[text() = 'Forgotten Password']"
     firstname = "//input[@name='firstname']"
@@ -21,6 +22,44 @@ class AdminPage:
     class Account:
         h2 = "//h2"
 
+    class AdminNavigation:
+        def sections(name):
+            return "//li/a[contains (., '%s')]" % name
 
+        def sections_item(item_name):
+            return "//li/a[contains (., '%s')]" % item_name
 
+    class AdminButtonsEditItem:
+        add_new = "//*[@data-original-title='Add New']"
+        save_button = "//*[@data-original-title='Save']"
+        cancel_button = "//*[@data-original-title='Cancel']"
+        edit_button = "//*[@data-original-title='Edit']"
+        delete_button = "//*[@data-original-title='Delete']"
 
+    class AdminFilter:
+        product_name_input = "//*[@id='input-name']"
+        model_name_input = "//*[@id='input-model']"
+        price_input = "//*[@id='input-price']"
+        quantity_input = "//*[@id='input-quantity']"
+        status_select = "//*[@id='input-status']"
+        filter_button = "//*[@id='button-filter']"
+
+    class ProductList:
+        product_names = "//td[@class='text-left'][1]"
+        product_models = "//td[@class='text-left'][2]"
+
+        def current_product_check_box(product_name):
+            return "//td[contains (., '%s')]/parent::*//input[@type='checkbox']" % product_name
+
+    class AddProduct:
+        def topics(topics_name):
+            return "//*[@class='nav nav-tabs']//a[contains (., '%s')]" % topics_name
+
+        class General:
+            product_name_input = "//*[@id='input-name1']"
+            meta_tag_title = "//*[@id='input-meta-title1']"
+
+        class Data:
+            model_input = "//*[@id='input-model']"
+            price_input = "//*[@id='input-price']"
+            quantity_input = "//*[@id='input-quantity']"
