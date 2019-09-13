@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc1f89c6-36a5-4886-9afd-1e599843a931" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/my_test_project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/AdminPage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/CatalogPage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/CommonLocators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/MainPage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/ProductPage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/locators/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/tests/test_admin_products.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opencart_project_tests/tests/test_page.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../otus_env/bin/pip" beforeDir="false" afterPath="$PROJECT_DIR$/../otus_env/bin/pip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../otus_env/bin/pip3" beforeDir="false" afterPath="$PROJECT_DIR$/../otus_env/bin/pip3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../otus_env/bin/pip3.6" beforeDir="false" afterPath="$PROJECT_DIR$/../otus_env/bin/pip3.6" afterDir="false" />
@@ -57,7 +60,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

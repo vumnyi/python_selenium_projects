@@ -1,4 +1,4 @@
-class ProductPage:
+class Product:
     breadcrumbs = "//ul[@class='breadcrumb']/li"
     description = "//a[text() = 'Description']"
     specification = "//a[text() = 'Specification']"
@@ -44,5 +44,4 @@ class ProductPage:
         wrap_image_previos_button = wrapper + "//button[@title='Previous (Left arrow key)']"
         wrap_image_next_button = wrapper + "Next (Right arrow key)"
 
-    class Alert:
-        success = "//div[contains(@class, 'alert-success')]"
+

@@ -1,12 +1,8 @@
-class AdminPage:
+class Admin:
     continue_button = "//*[text() = 'Continue']"
-    button_submit = "//*[@type='submit']"
     button_back = "//*[text() = 'Back']"
-    login_button = "input[@value='Login']"
     list_group_column_links = "//div[@class='list-group']/a"
-    email_input = "//input[@name='email']"
     username_input = "//input[@name='username']"
-    password_input = "//input[@name='password']"
     forgotten_password_link = "//a[text() = 'Forgotten Password']"
     firstname = "//input[@name='firstname']"
     lastname = "//input[@name='lastname']"
@@ -18,6 +14,15 @@ class AdminPage:
     subscribe_no = "//*[text() = 'Subscribe']/following::*[@type='radio' and @value='0']"
     privacy_police_link = "//b[text() = 'Privacy Policy']/ancestor::a"
     privacy_police_checkbox = "//b[text() = 'Privacy Policy']/following::input[@type='checkbox']"
+
+    class UserMenu:
+        class RightMenu:
+            def item(text):
+                choose_item = "//*[@id='column-right']//a[contains (., '%s')]" % text
+                return choose_item
+
+        class PaymentForm:
+            it = "//*[@id='payment-new']"
 
     class Account:
         h2 = "//h2"

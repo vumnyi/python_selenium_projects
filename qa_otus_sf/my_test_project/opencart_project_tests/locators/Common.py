@@ -1,4 +1,8 @@
-class CommonLocators:
+class Common:
+    email_input = "//input[@name='email']"
+    password_input = "//input[@name='password']"
+    button_submit = "//*[@type='submit']"
+    login_button = "//input[@value='Login']"
     nav_links = "//ul[@class='nav navbar-nav']/li"
     input_search = "//*[@name='search']"
     search_button = "//*[@id='search']//button"
@@ -25,6 +29,11 @@ class CommonLocators:
         shopping_cart = "//span[contains (., 'Shopping Cart')]"
         checkout = "//span[contains (., 'Checkout')]"
 
+        def my_account_dropdown(item):
+            dropdown_item = "//span[contains (., 'My Account')]/following::ul//a[contains (., '%s')]" % item
+            return dropdown_item
+
+
     class Footer:
         # Information
         about_us = "//li[contains (., 'About Us')]"
@@ -45,3 +54,14 @@ class CommonLocators:
         order_history = "//li[contains (., 'Order History')]"
         wish_list = "//div[@class='col-sm-3']//li[contains (., 'Wish List')]"
         newsletter = "//li[contains (., 'Newsletter')]"
+
+    class Alert:
+        class Success:
+            it = "//div[contains(@class, 'alert-success')]"
+            link_to_login = it + "/a[contains(@href, 'login')]"
+            link_to_create_account = it + "/a[contains(@href, 'register')]"
+            link_to_product = it + "/a[contains(@href, 'product')]"
+            link_to_wishlist = it + "/a[contains(@href, 'wishlist')]"
+            link_to_cart = it + "/a[contains(@href, 'cart')]"
+
+

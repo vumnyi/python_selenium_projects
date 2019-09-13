@@ -1,4 +1,4 @@
-class CatalogPage:
+class Catalog:
     column_items_links = "//div[@class='list-group']/a"
     column_items_banner = "//div[@class='swiper-viewport']"
 
