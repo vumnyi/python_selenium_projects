@@ -8,7 +8,6 @@ def pytest_addoption(parser):
     parser.addoption("--browser", "-B", action="store", default="chrome", help="choose your browser")
     parser.addoption("--url", "-U", action="store", default="http://localhost/", help="choose your url")
     parser.addoption("--options", "-O", action="store", default="", help="choose headless")
-    parser.addoption("--iwait", "--IW", action="store", default="0", help="choose implicitly wait")
 
 
 @pytest.fixture(scope='session')

@@ -1,8 +1,7 @@
 class Main:
-    promoblock = "//*[@class='swiper-viewport']"
+    promoblock = {"xpath": "//*[@class='swiper-viewport']"}
 
     class Featured:
-        block_featured = "//div[@id='content']/*[@class='row']"
-        products = block_featured + "/*[contains(@class, 'product-layout')]"
-        names = products + "//h4"
-
+        block_featured = {"xpath": "//div[@id='content']/*[@class='row']"}
+        products = {"xpath": block_featured["xpath"] + "/*[contains(@class, 'product-layout')]"}
+        names = {"xpath": products["xpath"] + "//h4"}
