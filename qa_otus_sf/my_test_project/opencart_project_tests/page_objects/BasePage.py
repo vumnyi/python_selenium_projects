@@ -20,11 +20,13 @@ class BasePage:
 
     def _click(self, selector, index=0):
         ActionChains(self.driver).move_to_element(self.__element(selector, index)).click().perform()
+        return self
 
     def _input(self, selector, value, index=0):
         element = self.__element(selector, index)
         element.clear()
         element.send_keys(value)
+        return self
 
     def _wait_for_visible(self, selector, link_text=None, index=0, wait=3):
         return WebDriverWait(self.driver, wait).until(EC.visibility_of(self.__element(selector, index, link_text)))
