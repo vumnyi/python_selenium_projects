@@ -24,6 +24,7 @@ class Common:
         currency_euro = {"xpath": currency["xpath"] + "/following::*/*[contains (text(), 'Euro')]"}
         currency_pound_sterling = {"xpath": currency["xpath"] + "/following::*/*[contains (text(), 'Sterling')]"}
         currency_dollar = {"xpath": currency["xpath"] + "/following::*/*[contains (text(), 'Dollar')]"}
+        # global my_account
         my_account = {"xpath": "//span[contains (., 'My Account')]"}
         my_account_register = {"xpath": my_account["xpath"] + "/following::li/a[text() = 'Register']"}
         my_account_login = {"xpath": my_account["xpath"] + "/following::li/a[text() = 'Login']"}
@@ -33,6 +34,7 @@ class Common:
 
         def my_account_dropdown(item):
             dropdown_item = {"xpath": "//span[contains (., 'My Account')]/following::ul//a[contains (., '%s')]" % item}
+            # dropdown_item = {"xpath": my_account["xpath"] + "/following::ul//a[contains (., '%s')]" % item}
             return dropdown_item
 
     class Footer:

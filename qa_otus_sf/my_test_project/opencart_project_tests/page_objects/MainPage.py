@@ -6,7 +6,8 @@ class MainPage(BasePage):
 
     def click_featured_product(self, number):
         index = number - 1
-        feature_product = self.driver.find_elements_by_xpath(Main.Featured.products['xpath'])[index]
-        product_name = feature_product.find_element_by_xpath(Main.Featured.names['xpath']).text
-        feature_product.click()
-        return product_name
+        self._click(Main.Featured.products, index=index)
+
+    def featured_product_name(self, number):
+        index = number - 1
+        return self._get_element_text(Main.Featured.names, index=index)
