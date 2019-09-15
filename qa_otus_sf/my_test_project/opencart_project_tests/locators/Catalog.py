@@ -9,5 +9,6 @@ class Catalog:
         compare_link = {"xpath": "//a[@id='compare-total']"}
         sort_by_select = {"xpath": "//select[@id='input-sort']"}
         sort_by_select_option_name_z_a = {"xpath": "//select[@id='input-sort']/option[3]"}
+        sort_by_select_option_name_low_high = {"xpath": "//select[@id='input-sort']/option[4]"}
         input_limit = {"xpath": "//select[@id='input-limit']"}
         input_limit_option = {"xpath": "//select[@id='input-limit']/option"}

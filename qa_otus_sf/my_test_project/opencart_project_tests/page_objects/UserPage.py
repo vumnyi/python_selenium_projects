@@ -7,16 +7,16 @@ class UserPage(BasePage):
     def login_user(self, email, password):
         self._input(Common.email_input, email)
         self._input(Common.password_input, password)
-        self._click(Common.login_button)
+        self._click_ac(Common.login_button)
         return self
 
     def my_account_dropdown(self, dropdown_item):
-        self._click(Common.Header.my_account)
-        self._click(Common.Header.my_account_dropdown(dropdown_item))
+        self._click_ac(Common.Header.my_account)
+        self._click_ac(Common.Header.my_account_dropdown(dropdown_item))
         return self
 
     def open_right_menu_item(self, item_name):
-        self._click(Admin.UserMenu.RightMenu.item(item_name))
+        self._click_ac(Admin.UserMenu.RightMenu.item(item_name))
         return self
 
     def verify_payment_form(self):
@@ -27,3 +27,5 @@ class UserPage(BasePage):
         self._wait_for_visible(name, link_text=True)
         return self
 
+    def get_h2_text(self):
+        return self._get_element_text(Admin.ClientAdminPage.Account.h2, 0)

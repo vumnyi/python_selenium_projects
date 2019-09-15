@@ -34,6 +34,7 @@ class Product:
     available_options_qty_input = {
         "xpath": product_options_div["xpath"] + "//label[text() = 'Qty']/following::input[@id='input-quantity']"}
     available_options_add_to_cart_button = {"xpath": product_options_div["xpath"] + "//button[@id='button-cart']"}
+    # available_options_add_to_cart_button = product_options_div["xpath"] + "//button[@id='button-cart']"
     available_options_reviews_link = {"xpath": product_options_div["xpath"] + "//a[contains (text(), 'reviews')]"}
     available_options_write_review_link = {"xpath": product_options_div["xpath"] + "//a[contains (text(), 'Write')]"}
     # social_media_buttons

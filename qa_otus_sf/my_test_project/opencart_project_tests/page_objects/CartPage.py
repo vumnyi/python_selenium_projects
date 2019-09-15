@@ -4,7 +4,7 @@ from .BasePage import BasePage
 class CartPage(BasePage):
 
     def click_button_name(self, btn_name):
-        self._click(Cart.bottom_btn.button_name(btn_name))
+        self._click_ac(Cart.bottom_btn.button_name(btn_name))
         return self
 
     def verify_product(self, name):
