@@ -18,9 +18,9 @@ def test_add_item_to_cart(browser):
     """Добавляем в корзину три товара и проверяем что они отображаются"""
     browser.get('http://localhost/index.php?route=product/product&path=20_27&product_id=41')
     ProductPage(browser).how_much_items_input(3).click_add_to_cart_btn()
-    ProductPage(browser).verify_add_to_cart_btn_clickable()
-    # WebDriverWait(browser, 5).until(
-    #     EC.element_to_be_clickable((By.XPATH, Product.available_options_add_to_cart_button["xpath"])))
+    # ProductPage(browser).verify_add_to_cart_btn_clickable()
+    WebDriverWait(browser, 5).until(
+        EC.element_to_be_clickable((By.XPATH, Product.available_options_add_to_cart_button["xpath"])))
     assert '3 item(s)' in YourStore(browser).get_cart_button_text()
 
 

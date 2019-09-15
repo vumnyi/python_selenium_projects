@@ -38,16 +38,16 @@ def browser(request):
 @pytest.fixture()
 def admin_autorization(browser):
     browser.get('https://localhost/admin/')
-    browser.find_element_by_xpath(Admin.username_input).send_keys('user')
-    browser.find_element_by_xpath(Common.password_input).send_keys('bitnami1')
-    browser.find_element_by_xpath(Common.button_submit).click()
+    browser.find_element_by_xpath(Admin.username_input["xpath"]).send_keys('user')
+    browser.find_element_by_xpath(Common.password_input["xpath"]).send_keys('bitnami1')
+    browser.find_element_by_xpath(Common.button_submit["xpath"]).click()
     assert browser.find_element_by_xpath('//h1').text == 'Dashboard'
 
 
 @pytest.fixture()
 def client_autorization(browser):
     browser.get('https://localhost/index.php?route=account/login')
-    browser.find_element_by_xpath(Common.email_input).send_keys('234@234.ru')
-    browser.find_element_by_xpath(Common.password_input).send_keys('123123')
-    browser.find_element_by_xpath(Common.button_submit).click()
+    browser.find_element_by_xpath(Common.email_input["xpath"]).send_keys('234@234.ru')
+    browser.find_element_by_xpath(Common.password_input["xpath"]).send_keys('123123')
+    browser.find_element_by_xpath(Common.button_submit["xpath"]).click()
     assert browser.find_element_by_xpath('//h2').text == 'My Account'
