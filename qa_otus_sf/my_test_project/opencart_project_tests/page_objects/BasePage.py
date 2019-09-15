@@ -18,6 +18,14 @@ class BasePage:
             selector = selector['xpath']
         return self.driver.find_elements(by, selector)[index]
 
+    def _text_elements(self, selector: dict):
+        by = None
+        if 'xpath' in selector.keys():
+            by = By.XPATH
+            selector = selector['xpath']
+        parse_names = self.driver.find_elements(by, selector)
+        return [i.text for i in parse_names]
+
     def _click_ac(self, selector, index=0):
         # ac = Action Chains
         ActionChains(self.driver).move_to_element(self.__element(selector, index)).click().perform()

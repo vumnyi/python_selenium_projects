@@ -1,6 +1,7 @@
 from locators import Common
 from ..BasePage import BasePage
 
+
 class TopMenu(BasePage):
 
     def change_currency(self, currency):

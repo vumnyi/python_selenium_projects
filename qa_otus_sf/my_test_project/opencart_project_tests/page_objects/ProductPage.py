@@ -24,8 +24,7 @@ class ProductPage(BasePage):
         return self
 
     def verify_add_to_cart_btn_clickable(self):
-        self._wait_for_clickable(Product.available_options_add_to_cart_button)
-        return self
+        return self._wait_for_clickable(Product.available_options_add_to_cart_button)
 
     def get_price_text(self):
         return self._get_element_text(Product.product_options_div_h2_price, 0)

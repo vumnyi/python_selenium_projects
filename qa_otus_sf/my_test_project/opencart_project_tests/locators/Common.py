@@ -1,4 +1,5 @@
 class Common:
+    h1_text = {"xpath": "//h1"}
     email_input = {"xpath": "//input[@name='email']"}
     password_input = {"xpath": "//input[@name='password']"}
     button_submit = {"xpath": "//*[@type='submit']"}
