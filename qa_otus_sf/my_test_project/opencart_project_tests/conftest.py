@@ -35,6 +35,23 @@ def browser(request):
     return driver
 
 
+@pytest.fixture(params=["chrome", "firefox"])
+def parametrize_browser(request):
+    browser_param = request.param
+    if browser_param == "chrome":
+        driver = webdriver.Chrome()
+    elif browser_param == "firefox":
+        driver = webdriver.Firefox()
+    else:
+        raise Exception(f"{request.param} is not supported!")
+
+    driver.implicitly_wait(5)
+    driver.maximize_window()
+    request.addfinalizer(driver.quit)
+    driver.get(request.config.getoption("--url"))
+    return driver
+
+
 @pytest.fixture()
 def admin_autorization(browser):
     browser.get('https://localhost/admin/')

@@ -45,9 +45,10 @@ class BasePage:
         return WebDriverWait(self.driver, wait).until(
             EC.visibility_of(self.__element(selector, index, link_text)))
 
-    def _wait_for_clickable(self, selector, link_text=None, index=0, wait=3):
+    def _wait_for_clickable(self, selector, wait=3):
         return WebDriverWait(self.driver, wait).until(
-            EC.element_to_be_clickable(self.__element(selector, index, link_text)))
+            EC.element_to_be_clickable((By.XPATH, selector)))
 
     def _get_element_text(self, selector, index):
+        index = index - 1
         return self.__element(selector, index).text

@@ -18,7 +18,8 @@ class Admin:
     class UserMenu:
         class RightMenu:
             def item(text):
-                choose_item = {"xpath": "//*[@id='column-right']//a[contains (., '%s')]" % text}
+                # choose_item = {"xpath": "//*[@id='column-right']//a[contains (., '%s')]" % text}
+                choose_item = {"xpath": "//*[@id='column-right']//a[contains (., '{}')]".format(text)}
                 return choose_item
 
         class PaymentForm:
@@ -29,10 +30,12 @@ class Admin:
 
     class AdminNavigation:
         def sections(name):
-            return {"xpath": "//li/a[contains (., '%s')]" % name}
+            # return {"xpath": "//li/a[contains (., '%s')]" % name}
+            return {"xpath": "//li/a[contains (., '{}')]".format(name)}
 
         def sections_items(item_name):
-            return {"xpath": "//li/a[contains (., '%s')]" % item_name}
+            # return {"xpath": "//li/a[contains (., '%s')]" % item_name}
+            return {"xpath": "//li/a[contains (., '{}')]".format(item_name)}
 
     class AdminButtonsEditItem:
         add_new = {"xpath": "//*[@data-original-title='Add New']"}
@@ -43,8 +46,8 @@ class Admin:
 
     class AdminFilter:
         def filter_input(input_name):
-            return {"xpath": "//label[contains (., '%s')]/following-sibling::input" % input_name}
-
+            # return {"xpath": "//label[contains (., '%s')]/following-sibling::input" % input_name}
+            return {"xpath": "//label[contains (., '{}')]/following-sibling::input".format(input_name)}
         filter_button = {"xpath": "//*[@id='button-filter']"}
 
     class ProductList:
@@ -52,11 +55,13 @@ class Admin:
         product_models = {"xpath": "//td[@class='text-left'][2]"}
 
         def current_product_check_box(product_name):
-            return {"xpath": "//td[contains (., '%s')]/parent::*//input[@type='checkbox']" % product_name}
+            # return {"xpath": "//td[contains (., '%s')]/parent::*//input[@type='checkbox']" % product_name}
+            return {"xpath": "//td[contains (., '{}')]/parent::*//input[@type='checkbox']".format(product_name)}
 
     class AddProduct:
         def topics(topics_name):
-            return {"xpath": "//*[@class='nav nav-tabs']//a[contains (., '%s')]" % topics_name}
+            # return {"xpath": "//*[@class='nav nav-tabs']//a[contains (., '%s')]" % topics_name}
+            return {"xpath": "//*[@class='nav nav-tabs']//a[contains (., '{}')]".format(topics_name)}
 
         class General:
             def product_name_input(name):

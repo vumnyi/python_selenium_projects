@@ -2,6 +2,7 @@ class Common:
     h1_text = {"xpath": "//h1"}
     email_input = {"xpath": "//input[@name='email']"}
     password_input = {"xpath": "//input[@name='password']"}
+    confirm_password_input = {"xpath": "//input[@name='confirm']"}
     button_submit = {"xpath": "//*[@type='submit']"}
     login_button = {"xpath": "//input[@value='Login']"}
     nav_links = {"xpath": "//ul[@class='nav navbar-nav']/li"}
@@ -20,6 +21,10 @@ class Common:
     caption_button_group_add_compare = {
         "xpath": caption_button_group["xpath"] + "/button[@data-original-title = 'Compare this Product']"}
 
+    def button_name(name):
+        # return {"xpath": "//div/a[contains (., '%s')]" % name}
+        return {"xpath": "//*[contains (., '{}')]".format(name)}
+
     class Header:
         currency = {"xpath": "//span[contains (., 'Currency')]"}
         currency_euro = {"xpath": currency["xpath"] + "/following::*/*[contains (text(), 'Euro')]"}
@@ -34,8 +39,9 @@ class Common:
         checkout = {"xpath": "//span[contains (., 'Checkout')]"}
 
         def my_account_dropdown(item):
-            dropdown_item = {"xpath": "//span[contains (., 'My Account')]/following::ul//a[contains (., '%s')]" % item}
-            # dropdown_item = {"xpath": my_account["xpath"] + "/following::ul//a[contains (., '%s')]" % item}
+            # dropdown_item = {"xpath": "//span[contains (., 'My Account')]/following::ul//a[contains (., '%s')]" % item}
+            dropdown_item = {
+                "xpath": "//span[contains (., 'My Account')]/following::ul//a[contains (., '{}')]".format(item)}
             return dropdown_item
 
     class Footer:

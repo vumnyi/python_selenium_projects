@@ -1,11 +1,10 @@
-from locators import Cart
+from locators import Cart, Common
 from .BasePage import BasePage
 
 class CartPage(BasePage):
 
-    def click_button_name(self, btn_name):
-        self._click_ac(Cart.bottom_btn.button_name(btn_name))
-        return self
+    def click_button_checkout(self):
+        return self._click_ac(Common.Header.checkout)
 
     def verify_product(self, name):
         self._wait_for_visible(name, link_text=True)

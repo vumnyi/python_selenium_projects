@@ -1,11 +1,21 @@
 class Product:
     breadcrumbs = {"xpath": "//ul[@class='breadcrumb']/li"}
-    description = {"xpath": "//a[text() = 'Description']"}
-    specification = {"xpath": "//a[text() = 'Specification']"}
+    # description = {"xpath": "//a[text() = 'Description']"}
+    # specification = {"xpath": "//a[text() = 'Specification']"}
+    # reviews = {"xpath": "//a[contains (text(), 'Reviews')]"}
+
+    def choose_product_tab(tab_name):
+        # return {"xpath": "//a[contains (text(), '%s')]" % tab_name}
+        return {"xpath": "//a[contains (text(), '{}')]".format(tab_name)}
+
     # review
-    reviews = {"xpath": "//a[contains (text(), 'Reviews')]"}
     write_review_textarea = {"xpath": "//textarea[@name='text']"}
-    write_review_rating = {"xpath": "//input[@name='rating']"}
+    write_review_name = {"xpath": "//input[@name='name']"}
+
+    def choose_review_rating(rating):
+        # return {"xpath": "//input[@name='rating' and @value='%s']" % rating}
+        return {"xpath": "//input[@name='rating' and @value='{}']".format(rating)}
+
     write_review_button_continue = {"xpath": "//button[@id='button-review']"}
     # product_options_div
     product_options_div = {"xpath": "//div[@id='content']//div[@class='col-sm-4']"}

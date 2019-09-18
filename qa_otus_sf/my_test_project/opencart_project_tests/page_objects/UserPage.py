@@ -29,3 +29,18 @@ class UserPage(BasePage):
 
     def get_h2_text(self):
         return self._get_element_text(Admin.ClientAdminPage.Account.h2, 0)
+
+    def input_field_name(self, field_name, value):
+        if field_name == 'Password':
+            self._input(Common.password_input, value)
+        elif field_name == 'Confirm':
+            self._input(Common.confirm_password_input, value)
+
+    def click_button_continue(self):
+        return self._click(Common.button_submit)
+
+    def change_password(self, value):
+        self._input(Common.password_input, value)
+        self._input(Common.confirm_password_input, value)
+        self._click(Common.button_submit)
+        return self

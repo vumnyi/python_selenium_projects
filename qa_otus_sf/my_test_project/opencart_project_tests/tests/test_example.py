@@ -21,7 +21,6 @@ def test_add_to_cart(browser):
     MainPage(browser).click_featured_product(1)
     ProductPage(browser).add_to_cart()
     AlertDialog(browser).click_to_cart()
-    CartPage(browser).verify_product(product_name). \
-        click_button_name('Checkout')
+    CartPage(browser).verify_product(product_name).click_button_checkout('Checkout')
     UserPage(browser).login_user(email=TestUsers.user1['email'], password=TestUsers.user1['password']). \
         verify_payment_form()

@@ -1,4 +1,4 @@
-from locators import Main
+from locators import Main, Common
 from .BasePage import BasePage
 
 
@@ -14,3 +14,6 @@ class MainPage(BasePage):
 
     def click_promoblock(self):
         self._click_ac(Main.promoblock)
+
+    def click_button(self, button_name):
+        self._click(Common.button_name(button_name))
