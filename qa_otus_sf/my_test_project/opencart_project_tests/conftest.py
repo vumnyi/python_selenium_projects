@@ -1,7 +1,35 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 import pytest
+from browsermobproxy import Server
 from locators import Admin, Common
+import logging
+from datetime import date
+
+@pytest.fixture(scope='session', autouse=True)
+def proxy():
+    server = Server("/home/sergey/repositories/browsermob-proxy-2.1.4-bin/browsermob-proxy-2.1.4/bin/browsermob-proxy")
+    server.start()
+    proxy = server.create_proxy()
+    proxy.new_har(title='project_har')
+    yield proxy
+    server.stop()
+
+class MyListener(AbstractEventListener):
+    logging.basicConfig(filename='data.log', filemode='a', level=logging.DEBUG,
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    def before_find(self, by, value, driver):
+        logging.info('Try to find element ' + str(value))
+
+    def before_click(self, element, driver):
+        logging.info('Try to click element with class: ' + str(element.get_attribute('class')))
+
+    def on_exception(self, exception, driver):
+        driver.save_screenshot(f'screenshots/{driver.name} {date.today()}.png')
+        logging.info('SCREENSHOT TAKEN')
+        logging.error(exception)
 
 
 def pytest_addoption(parser):
@@ -10,8 +38,8 @@ def pytest_addoption(parser):
     parser.addoption("--options", "-O", action="store", default="", help="choose headless")
 
 
-@pytest.fixture(scope='session')
-def browser(request):
+@pytest.fixture(scope='session', autouse=True)
+def browser(request, proxy):
     browser_param = request.config.getoption("--browser")
     browser_options = request.config.getoption("--options")
     if browser_param == "chrome":
@@ -20,14 +48,17 @@ def browser(request):
             options.add_argument('headless')
             driver = webdriver.Chrome(options=options)
         else:
-            driver = webdriver.Chrome()
+            options = webdriver.ChromeOptions()
+            options.add_argument(f'--proxy-server={proxy.proxy}')
+            driver = EventFiringWebDriver(webdriver.Chrome(), MyListener())
+
     elif browser_param == "firefox":
         if browser_options == 'headless':
             options = Options()
             options.add_argument('-headless')
             driver = webdriver.Firefox(options=options)
         else:
-            driver = webdriver.Firefox()
+            driver = EventFiringWebDriver(webdriver.Firefox(), MyListener())
     driver.implicitly_wait(5)
     driver.maximize_window()
     request.addfinalizer(driver.close)
@@ -59,6 +90,8 @@ def admin_autorization(browser):
     browser.find_element_by_xpath(Common.password_input["xpath"]).send_keys('bitnami1')
     browser.find_element_by_xpath(Common.button_submit["xpath"]).click()
     assert browser.find_element_by_xpath('//h1').text == 'Dashboard'
+    for i in browser.get_log('browser'):
+        print(i)
 
 
 @pytest.fixture()

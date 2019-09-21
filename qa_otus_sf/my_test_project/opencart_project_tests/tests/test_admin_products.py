@@ -13,7 +13,7 @@ def test_add_item(browser, admin_autorization):
      для авторизации в админке, проверяем что наш продукт в списке"""
     AdminPage(browser).navigation_panel_click('Catalog'). \
         section_item_click('Products')
-    assert Headings(browser).get_h1_text() == 'Products'
+    assert Headings(browser).get_h1_text(1) == 'Products'
     AdminPage(browser).add_new_button_click() \
         .product_inputs("Product Name", PRODUCT_NAME) \
         .product_inputs("Meta Tag Title", 'TESLA TEST') \

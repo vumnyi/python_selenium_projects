@@ -13,7 +13,7 @@ class MainPage(BasePage):
         return self._get_element_text(Main.Featured.names, index=index)
 
     def click_promoblock(self):
-        self._click_ac(Main.promoblock)
+        self._click(Main.promoblock)
 
     def click_button(self, button_name):
         self._click(Common.button_name(button_name))

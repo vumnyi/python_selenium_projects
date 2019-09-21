@@ -1,5 +1,6 @@
 class Product:
     breadcrumbs = {"xpath": "//ul[@class='breadcrumb']/li"}
+
     # description = {"xpath": "//a[text() = 'Description']"}
     # specification = {"xpath": "//a[text() = 'Specification']"}
     # reviews = {"xpath": "//a[contains (text(), 'Reviews')]"}
