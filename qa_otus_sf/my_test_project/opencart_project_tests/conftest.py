@@ -8,6 +8,7 @@ import logging
 from datetime import date
 
 @pytest.fixture(scope='session', autouse=True)
+#https://automated-testing.info/t/chto-takoe-browsermob-proxy-i-kak-zastavit-ego-rabotat-tutorial-dlya-nachinayushhih-primer-ispolzovaniya-na-python/3510
 def proxy():
     server = Server("/home/sergey/repositories/browsermob-proxy-2.1.4-bin/browsermob-proxy-2.1.4/bin/browsermob-proxy")
     server.start()
