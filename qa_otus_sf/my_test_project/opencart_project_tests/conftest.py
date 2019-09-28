@@ -49,7 +49,7 @@ def browser(request, proxy):
             driver = webdriver.Chrome(options=options)
         else:
             options = webdriver.ChromeOptions()
-            options.add_argument(f'--proxy-server={proxy.proxy}')
+            # options.add_argument(f'--proxy-server={proxy.proxy}')
             driver = EventFiringWebDriver(webdriver.Chrome(), MyListener())
 
     elif browser_param == "firefox":
