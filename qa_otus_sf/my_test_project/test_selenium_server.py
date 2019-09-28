@@ -11,6 +11,7 @@ import pytest
 # разные инстансы
 # java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://172.17.0.1:4444/grid/register/ -capabilities browserName=chrome,maxInstances=2 -capabilities browserName=firefox,maxInstances=1
 
+#Grid EXTRAS https://github.com/groupon/Selenium-Grid-Extras
 
 @pytest.fixture
 def browser(request):
