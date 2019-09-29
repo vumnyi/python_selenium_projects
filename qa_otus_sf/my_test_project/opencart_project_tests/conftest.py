@@ -6,9 +6,12 @@ from browsermobproxy import Server
 from locators import Admin, Common
 import logging
 from datetime import date
+import platform
+
 
 @pytest.fixture(scope='session', autouse=True)
-#https://automated-testing.info/t/chto-takoe-browsermob-proxy-i-kak-zastavit-ego-rabotat-tutorial-dlya-nachinayushhih-primer-ispolzovaniya-na-python/3510
+# https://automated-testing.info/t/chto-takoe-browsermob-proxy-i-kak-zastavit-ego-rabotat-tutorial-dlya-nachinayushhih-primer-ispolzovaniya-na-python/3510
+# https://automated-testing.info/t/wd-python-kak-pojmat-get-zapros/1905
 def proxy():
     server = Server("/home/sergey/repositories/browsermob-proxy-2.1.4-bin/browsermob-proxy-2.1.4/bin/browsermob-proxy")
     server.start()
@@ -17,8 +20,9 @@ def proxy():
     yield proxy
     server.stop()
 
+
 class MyListener(AbstractEventListener):
-    logging.basicConfig(filename='data.log', filemode='a', level=logging.DEBUG,
+    logging.basicConfig(filename='data.log', filemode='w', level=logging.DEBUG,
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     def before_find(self, by, value, driver):
@@ -82,6 +86,30 @@ def parametrize_browser(request):
     request.addfinalizer(driver.quit)
     driver.get(request.config.getoption("--url"))
     return driver
+
+
+@pytest.mark.usefixtures('environment_info')
+@pytest.fixture(scope='session', autouse=True)
+def configure_html_report_env(request, environment_info):
+    request.config._metadata.update(
+        {'browser': request.config.getoption('--browser'),
+         'address': request.config.getoption('--url'),
+         'env_info': environment_info[0],  # os_platform
+         'platform_machine': environment_info[2],
+         'python_version': environment_info[3],
+         'example': "Hello, it's EXAMPLE"}
+    )
+    yield
+
+
+@pytest.fixture(scope='session')
+def environment_info():
+    # settings environment in html-report
+    os_platform = platform.platform()
+    linux_dist = platform.linux_distribution()
+    platform_machine = platform.machine()
+    python_version = platform.python_version()
+    return os_platform, linux_dist, platform_machine, python_version
 
 
 @pytest.fixture()
