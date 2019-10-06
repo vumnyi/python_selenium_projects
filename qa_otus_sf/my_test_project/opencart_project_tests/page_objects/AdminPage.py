@@ -1,11 +1,13 @@
 from locators import Admin
 from .BasePage import BasePage
+import allure
 
 
 class AdminPage(BasePage):
 
     def navigation_panel_click(self, section):
-        return self._click(Admin.AdminNavigation.sections(section))
+        with allure.step(f'Кликаю по секции {section}'):
+            return self._click(Admin.AdminNavigation.sections(section))
 
     def section_item_click(self, item):
         return self._click(Admin.AdminNavigation.sections_items(item))
@@ -26,13 +28,15 @@ class AdminPage(BasePage):
         return self._click(Admin.AdminButtonsEditItem.save_button)
 
     def product_topics_click(self, topic):
-        return self._click(Admin.AddProduct.topics(topic))
+        with allure.step(f'Кликаю по заголовку {topic}'):
+            return self._click(Admin.AddProduct.topics(topic))
 
     def product_list_checkbox_click(self, current_product):
         return self._click(Admin.ProductList.current_product_check_box(current_product))
 
     def product_inputs(self, input_name, text):
-        return self._input(Admin.AddProduct.General.product_name_input(input_name), text)
+        with allure.step(f'Ввожу в инпут значение {text}'):
+            return self._input(Admin.AddProduct.General.product_name_input(input_name), text)
 
     def filter_inputs(self, input_name, text):
         return self._input(Admin.AdminFilter.filter_input(input_name), text)

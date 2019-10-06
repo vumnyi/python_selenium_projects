@@ -2,12 +2,21 @@
 from selenium.webdriver.common.alert import Alert
 from page_objects import MainPage, UserPage, ProductPage, CartPage, BasePage, CatalogPage, AdminPage
 from page_objects.common.Headings import Headings
+import allure
 
 PRODUCT_NAME = 'TESLA'
 MODEL = 'MODEL S'
 NEW_MODEL = 'ROADSTER'
 
 
+# при помощи команды pytest --allure-features Добавляем новый продукт в админке test_name.py
+# запустит только тесты с таким именем feature
+# feature - верхнеуровневая, в нее вкладывается story
+@allure.feature('Добавляем новый продукт в админке')
+@allure.story('Admin page test')
+# критичность функционала
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.title('Custom title: Добавляем новый продукт')
 def test_add_item(browser, admin_autorization):
     """Добавляем новый продукт в админке, используем фикстуру
      для авторизации в админке, проверяем что наш продукт в списке"""
@@ -32,6 +41,10 @@ def test_add_item(browser, admin_autorization):
         print('\nНе найдено ' + PRODUCT_NAME)
 
 
+@allure.feature('Редактируем продукт в админке')
+@allure.story('Admin page test')
+@allure.description("""Меняем модель,
+    проверяем что модель в списке""")
 def test_edit_item(browser, admin_autorization):
     """Редактируем продукт в админке (меняем модель), используем фикстуру
      для авторизации в админке, провеярем что новая модель в списке"""
@@ -43,12 +56,16 @@ def test_edit_item(browser, admin_autorization):
         .product_inputs("Model", NEW_MODEL) \
         .save_product_button_click()
     try:
+        allure.attach.file('test_img.png', attachment_type=allure.attachment_type.PNG)
         assert NEW_MODEL in AdminPage(browser).models_names_in_list()
     except AssertionError as error:
         print(error)
         print('\nНе найдено ' + NEW_MODEL)
 
 
+@allure.feature('Удаляем продукт в админке')
+@allure.story('Admin page test')
+@allure.link('https://otus.ru/', name='OTUS PAGE')
 def test_delete_item(browser, admin_autorization):
     """Удаляем продукт в админке, используем фикстуру
     для авторизации в админке, проверяем что новая модель не в списке"""
@@ -59,4 +76,5 @@ def test_delete_item(browser, admin_autorization):
         .product_list_checkbox_click(NEW_MODEL) \
         .delete_button_click()
     Alert(browser).accept()
-    assert NEW_MODEL in AdminPage(browser).models_names_in_list()
+    with allure.step('Проверяю что новая модель в списке'):
+        assert NEW_MODEL in AdminPage(browser).models_names_in_list()

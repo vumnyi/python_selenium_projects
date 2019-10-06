@@ -1,8 +1,10 @@
 import pytest
 import requests
+import allure
 
 
 @pytest.mark.parametrize("test_data", ['dog', 'mad', 'almanac', 'brothers', 'goathouse'])
+@allure.feature('Проверяем выдачу по ключевому слову в имени')
 def test_one(test_data):
     """Проверяем выдачу по ключевому слову в имени"""
     response = requests.get('https://api.openbrewerydb.org/breweries?by_name=%s' % test_data)
